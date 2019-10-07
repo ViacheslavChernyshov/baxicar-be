@@ -19,6 +19,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    @PreAuthorize("hasRole('ROLE_DRIVER') or hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public List<User> listUser() {
         return userService.findAll();
@@ -29,6 +30,7 @@ public class UserController {
         return userService.save(user);
     }
 
+    @PreAuthorize("hasRole('DRIVER')")
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
     public User findOne(@PathVariable long id) {
         return userService.findOne(id);

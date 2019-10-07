@@ -1,3 +1,9 @@
+SET NAMES 'utf8';
+
+CREATE DATABASE test
+    CHARACTER SET utf8
+    COLLATE utf8_general_ci;
+
 CREATE TABLE user (
   id bigint NOT NULL AUTO_INCREMENT,
   age integer,
