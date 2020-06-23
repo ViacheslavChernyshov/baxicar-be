@@ -19,7 +19,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PreAuthorize("hasRole('ROLE_DRIVER') or hasRole('ROLE_ADMIN')")
+//    @PreAuthorize("hasRole('ROLE_DRIVER') or hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('DRIVER') or hasRole('ADMIN')")
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public List<User> listUser() {
         return userService.findAll();
