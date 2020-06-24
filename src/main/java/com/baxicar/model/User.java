@@ -1,6 +1,7 @@
 package com.baxicar.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,15 +17,20 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column
     private String firstName;
+
     @Column
     private String lastName;
-    @Column
+
+    @Column(unique = true, nullable = false)
     private String username;
-    @Column
+
+    @Column(nullable = false)
     @JsonIgnore
     private String password;
+
     @Column
     private int age;
 
