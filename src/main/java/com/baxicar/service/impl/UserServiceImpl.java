@@ -1,6 +1,6 @@
 package com.baxicar.service.impl;
 
-import com.baxicar.dao.UserDao;
+import com.baxicar.repository.UserRepository;
 import com.baxicar.model.User;
 import com.baxicar.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import java.util.Set;
 public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Autowired
-    private UserDao userDao;
+    private UserRepository userDao;
 
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
         User user = userDao.findByUsername(userId);
